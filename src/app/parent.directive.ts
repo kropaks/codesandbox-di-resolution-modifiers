@@ -3,7 +3,9 @@ import { LoggerService } from "./logger.service";
 
 @Directive({
   selector: "[appParent]",
-  providers: [LoggerService]
+  //@Host in child directive needs this: providers: [LoggerService]
+  //Commented out to show how @Host resolution modifier works
+  // providers: [LoggerService]
 })
 export class ParentDirective {
   constructor(@Optional() @Self() private logger: LoggerService) {
